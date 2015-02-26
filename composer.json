@@ -1,0 +1,33 @@
+{
+    "name": "keios/oc-trait-serializable",
+    "description": "Serialized object storage trait for OctoberCMS' models.",
+    "keywords": [
+        "octobercms",
+        "october",
+        "serialize",
+        "serializable"
+    ],
+    "homepage": "https://github.com/keiosweb/oc-trait-serializable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Łukasz Biały",
+            "email": "lukasz@c-call.eu",
+            "homepage": "http://keios.eu",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Keios\\Serializable\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
