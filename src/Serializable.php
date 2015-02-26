@@ -80,6 +80,10 @@ trait Serializable
     {
         $serializableAttributes = $this->getSerializableConfiguration();
         foreach ($serializableAttributes as $attribute) {
+            $object = $this->attributes[$attribute];
+            if (!is_object($object) || !is_subclass_of($object, '\Serializable')) {
+                throw new \Exception('Object passed to '.$attribute.' field does not implement Serializable!');
+            }
             $this->attributes[$attribute] = serialize($this->attributes[$attribute]);
         }
     }
