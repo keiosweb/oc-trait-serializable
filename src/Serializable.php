@@ -54,6 +54,13 @@ trait Serializable
                 );
 
                 $model->bindEvent(
+                    'model.afterSave',
+                    function () use ($model) {
+                        $model->unserializeSerializableAttributes();
+                    }
+                );
+
+                $model->bindEvent(
                     'model.saveInternal',
                     function () use ($model) {
                         $model->serializeSerializableAttributes();
