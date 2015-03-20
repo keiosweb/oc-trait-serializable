@@ -79,7 +79,7 @@ trait Serializable
     {
         $serializableAttributes = $this->getSerializableConfiguration();
         foreach ($serializableAttributes as $attribute) {
-            $this->attributes[$attribute] = unserialize($this->attributes[$attribute]);
+            $this->attributes[$attribute] = unserialize(base64_decode($this->attributes[$attribute]));
         }
     }
 
@@ -91,7 +91,7 @@ trait Serializable
             if (!is_object($object) || !is_subclass_of($object, '\Serializable')) {
                 throw new \Exception('Object passed to '.$attribute.' field does not implement Serializable!');
             }
-            $this->attributes[$attribute] = serialize($object);
+            $this->attributes[$attribute] = base64_encode(serialize($object));
         }
     }
 
